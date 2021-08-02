@@ -28,7 +28,12 @@ class Terminal:
         os.rmdir(path)
         return "deleted"
 
+    def calc(self,expression):
+        result = eval(expression)
+        return result
+
     def help(self):
+        print("calc       calculate math expression")
         print("find       find file")
         print("remove     remove file")
         return "help       command list"
@@ -45,7 +50,11 @@ def Args(func):
 terminal = Terminal()
 functions = {"find":terminal.find,
              "remove":terminal.remove,
+             "calc":terminal.calc,
              "help":terminal.help}
+
+print("**** System Terminal V1 ****")
+print("OS is running")
 
 while True:
     func = input(">")
